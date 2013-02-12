@@ -1,0 +1,13 @@
+*.pyc
+*.pyo
+*.swp
+._*
+*~
+.DS_Store
+*.bak
+.cache
+.coverage
+.sass-cache
+PYSMELLTAGS
+*.less
+

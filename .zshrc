@@ -44,3 +44,12 @@ alias _log='ssh 192.168.101.151'
 alias _jorin='mosh 54.248.76.178'
 alias pjson='python ~/tools/prettyjson.py'
 alias fg='~/tools/search.sh'
+
+
+# -------------------------------------------------------------------------------
+# symlink
+# -------------------------------------------------------------------------------
+#ln -s ~/dotfiles/.vimrc ~/.vimrc
+#ln -s ~/dotfiles/.zshrc ~/.zshrc
+
+ 
