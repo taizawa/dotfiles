@@ -62,4 +62,4 @@ cd ~/dotfiles
 git pull git://github.com/taizawa/dotfiles.git
 cd ~/tools
 git pull git://github.com/taizawa/tools.git
-cd~
+cd ~
