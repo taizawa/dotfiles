@@ -52,4 +52,12 @@ alias fg='~/tools/search.sh'
 #ln -s ~/dotfiles/.vimrc ~/.vimrc
 #ln -s ~/dotfiles/.zshrc ~/.zshrc
 
- 
+
+# -------------------------------------------------------------------------------
+# at login
+# -------------------------------------------------------------------------------
+cd ~/dotfiles
+git pull git://github.com/taizawa/dotfiles.git
+cd ~/tools
+git pull git://github.com/taizawa/tools.git
+cd~
