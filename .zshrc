@@ -44,6 +44,8 @@ alias _log='ssh 192.168.101.151'
 alias _jorin='mosh 54.248.76.178'
 alias pjson='python ~/tools/prettyjson.py'
 alias fg='~/tools/search.sh'
+alias rmls='~/tools/rmls.sh'
+alias targz='~/tools/targz.sh'
 alias rakumo='python2.5 /usr/local/google_appengine/dev_appserver.py --datastore_path=~/gae_store/dev_appserver.datastore --blobstore_path=~/gae/blobstore/dev_appserver.blobstore --high_replication -a 0.0.0.0 ~/dev/rakumo/'
 alias visasq='python /usr/local/google_appengine/dev_appserver.py --high_replication -a 0.0.0.0 ~/dev/visasq/'
 

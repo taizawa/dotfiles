@@ -65,6 +65,14 @@ augroup END
 autocmd QuickfixCmdPost make,grep,grepadd,vimgrep,vimgrepadd cwin
 autocmd QuickfixCmdPost lmake,lgrep,lgrepadd,lvimgrep,lvimgrepadd lwin
 
+" quickfix: 編集許可と折り返し表示無効
+function! OpenModifiableQF()
+        cw
+        set modifiable
+        set nowrap
+endfunction
+autocmd QuickfixCmdPost vimgrep,jshint call OpenModifiableQF())
+
 function! GetB()
   let c = matchstr(getline('.'), '.', col('.') - 1)
   let c = iconv(c, &enc, &fenc)
@@ -176,6 +184,21 @@ vnoremap /r "xy;%s/<C-R>=escape(@x, '\\/.*$^~[]')<CR>//gc<Left><Left><Left>
 "s*置換後文字列/g<Cr>でカーソル下のキーワードを置換
 nnoremap <expr> s* ':%substitute/\<' . expand('<cword>') . '\>/'
 
+
+"-------------------------------------------------------------------------------
+" 各種キーマップ 
+"-------------------------------------------------------------------------------
+"\\で変更があれば保存
+noremap <Leader><Leader> :up<CR>
+" noremap <CR> o<ESC>
+"ビジュアルモード時vで行末まで選択
+vnoremap v $h
+inoremap {} {}<LEFT>
+inoremap [] []<LEFT>
+inoremap () ()<LEFT>
+inoremap "" ""<LEFT>
+inoremap '' ''<LEFT>
+inoremap <> <><LEFT>
 
 "-------------------------------------------------------------------------------
 " 移動設定 Move
@@ -325,7 +348,11 @@ autocmd QuickfixCmdPost make copen
 let g:vimfiler_as_default_explorer = 1
 command Vf VimFiler -buffer-name=explorer -split -simple -winwidth=35 -toggle -no-quit
 
-
+" インデント関連
+" set softtabstop=4
+" set shiftwidth=4
+" set expandtab
+" 
 " NeoBundle ------ vimプラグイン管理
 " NeoBundle がインストールされていない時、
 " もしくは、プラグインの初期化に失敗した時の処理
@@ -336,7 +363,7 @@ endfunction
 " NeoBundle よるプラグインのロードと各プラグインの初期化
 function! s:LoadBundles()
   " 読み込むプラグインの指定
-  NeoBundle 'git://github.com/Shougo/clang_complete.git'
+  " NeoBundle 'git://github.com/Shougo/clang_complete.git'
   NeoBundle 'git://github.com/Shougo/echodoc.git'
   NeoBundle 'git://github.com/Shougo/neocomplcache.git'
   NeoBundle 'git://github.com/Shougo/neobundle.vim.git'
@@ -348,22 +375,42 @@ function! s:LoadBundles()
   NeoBundle 'git://github.com/teramako/jscomplete-vim'
   NeoBundle 'git://github.com/pangloss/vim-javascript'
   NeoBundle 'git://github.com/mattn/zencoding-vim'
+  NeoBundle 'git://github.com/vim-scripts/jshint.vim.git'
+  " NeoBundle 'git://github.com/scrooloose/syntastic.git'
+
   " Buffer
   NeoBundle 'DumbBuf'                           " quickbufっぽくbufferを管理。 <Leader>b<Space>でBufferList
-  NeoBundle 'minibufexpl.vim'                   " タブエディタ風にバッファ管理ウィンドウを表示
+  " NeoBundle 'minibufexpl.vim'                   " タブエディタ風にバッファ管理ウィンドウを表示
   NeoBundle 'The-NERD-tree'                     " ツリー型エクスプローラ
   NeoBundle 'vtreeexplorer'                     " vtreeexplorer.vim : ツリー状にファイルやディレクトリの一覧を表示
-
+  
+  " Comment out
+  NeoBundle 'https://github.com/tomtom/tcomment_vim'
+  
   " ...
   " 読み込んだプラグインの設定
   " ...
-
   " neocomplcache
   let g:neocomplcache_enable_at_startup = 1 " 起動時に有効化
   
   " DumbBuf
   let g:dumbbuf_hotkey=';;'
   
+  "minibufexpl
+  let g:miniBufExplMapWindowNavVim=1   "hjklで移動
+  let g:miniBufExplSplitBelow=0        " Put new window above
+  let g:miniBufExplMapWindowNavArrows=1
+  let g:miniBufExplMapCTabSwitchBufs=1
+  let g:miniBufExplModSelTarget=1
+  let g:miniBufExplSplitToEdge=1
+  nnoremap <C-d>    : bd<CR>      " バッファを閉じる
+  nmap <Space>      : MBEbn<CR>   " 次のバッファ
+  nmap <C-n>        : MBEbn<CR>   " 次のバッファ
+  nmap <C-p>        : MBEbp<CR>   " 前のバッファ
+  " syntastic
+  let g:syntastic_enable_signs=1
+  let g:syntastic_auto_loc_list=2
+
 endfunction
 
 " NeoBundle がインストールされているなら LoadBundles() を呼び出す
