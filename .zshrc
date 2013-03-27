@@ -28,7 +28,7 @@ ZSH_THEME="robbyrussell"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment following line if you want red dots to be displayed while waiting for completion
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -46,8 +46,8 @@ alias pjson='python ~/tools/prettyjson.py'
 alias fg='~/tools/search.sh'
 alias rmls='~/tools/rmls.sh'
 alias targz='~/tools/targz.sh'
-alias rakumo='python2.5 /usr/local/google_appengine/dev_appserver.py --datastore_path=~/gae_store/dev_appserver.datastore --blobstore_path=~/gae/blobstore/dev_appserver.blobstore --high_replication -a 0.0.0.0 ~/dev/rakumo/'
-alias visasq='python /usr/local/google_appengine/dev_appserver.py --high_replication -a 0.0.0.0 ~/dev/visasq/'
+alias rakumo='python2.5 /usr/local/google_appengine/old_dev_appserver.py --datastore_path=~/gae_store/dev_appserver.datastore --blobstore_path=~/gae/blobstore/dev_appserver.blobstore --high_replication -a 0.0.0.0 ~/dev/rakumo/'
+alias visasq='python /usr/local/google_appengine/dev_appserver.py --high_replication -a 0.0.0.0 ~/dev/visasq/ --use_sqlite'
 
 
 # -------------------------------------------------------------------------------
@@ -56,10 +56,10 @@ alias visasq='python /usr/local/google_appengine/dev_appserver.py --high_replica
 #ln -s ~/dotfiles/.vimrc ~/.vimrc
 #ln -s ~/dotfiles/.zshrc ~/.zshrc
 
-
 # -------------------------------------------------------------------------------
 # at login
 # -------------------------------------------------------------------------------
+ulimit -n 5120
 cd ~/dotfiles
 git pull git://github.com/taizawa/dotfiles.git
 cd ~/tools
