@@ -48,7 +48,7 @@ alias rmls='~/tools/rmls.sh'
 alias targz='~/tools/targz.sh'
 alias rakumo='python2.5 /usr/local/google_appengine/old_dev_appserver.py --datastore_path=~/gae_store/dev_appserver.datastore --blobstore_path=~/gae/blobstore/dev_appserver.blobstore --high_replication -a 0.0.0.0 ~/dev/rakumo/'
 alias visasq='python /usr/local/google_appengine/dev_appserver.py --high_replication -a 0.0.0.0 ~/dev/visasq/ --use_sqlite'
-
+alias uvisasq='appcfg.py update -A vis-asq . --no_cookies'
 
 # -------------------------------------------------------------------------------
 # symlink
@@ -65,3 +65,8 @@ git pull git://github.com/taizawa/dotfiles.git
 cd ~/tools
 git pull git://github.com/taizawa/tools.git
 cd ~
+
+# -------------------------------------------------------------------------------
+# path
+# -------------------------------------------------------------------------------
+export PATH=$PATH:/usr/local/google_appengine/
