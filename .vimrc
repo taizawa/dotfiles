@@ -377,6 +377,9 @@ function! s:LoadBundles()
   NeoBundle 'git://github.com/mattn/zencoding-vim'
   NeoBundle 'git://github.com/vim-scripts/jshint.vim.git'
   " NeoBundle 'git://github.com/scrooloose/syntastic.git'
+  
+  " メモアプリ
+  NeoBundle 'git://github.com/fuenor/qfixhowm'
 
   " Buffer
   NeoBundle 'DumbBuf'                           " quickbufっぽくbufferを管理。 <Leader>b<Space>でBufferList
@@ -410,6 +413,11 @@ function! s:LoadBundles()
   " syntastic
   let g:syntastic_enable_signs=1
   let g:syntastic_auto_loc_list=2
+
+
+  let g:qfixmemo_dir = '~/Dropbox/howm'
+
+
 
 endfunction
 
