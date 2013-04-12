@@ -71,7 +71,7 @@ function! OpenModifiableQF()
         set modifiable
         set nowrap
 endfunction
-autocmd QuickfixCmdPost vimgrep,jshint call OpenModifiableQF())
+autocmd QuickfixCmdPost jshint call OpenModifiableQF())
 
 function! GetB()
   let c = matchstr(getline('.'), '.', col('.') - 1)
