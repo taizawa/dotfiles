@@ -43,7 +43,7 @@ set helpfile=$VIMRUNTIME/doc/help.txt
 filetype plugin on
 
 " colorscheme
-colorscheme desert
+colorscheme pyte
 
 
 "-------------------------------------------------------------------------------
@@ -377,6 +377,9 @@ function! s:LoadBundles()
   NeoBundle 'git://github.com/mattn/zencoding-vim'
   NeoBundle 'git://github.com/vim-scripts/jshint.vim.git'
   " NeoBundle 'git://github.com/scrooloose/syntastic.git'
+  
+  " colorscheme
+  NeoBundle 'flazz/vim-colorschemes'
   
   " メモアプリ
   NeoBundle 'git://github.com/fuenor/qfixhowm'

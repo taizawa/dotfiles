@@ -41,7 +41,7 @@ source $ZSH/oh-my-zsh.sh
 # aliases
 # -------------------------------------------------------------------------------
 alias _log='ssh 192.168.101.151'
-alias _jorin='mosh 54.248.76.178'
+alias _jorin='ssh 54.248.76.178'
 alias pjson='python ~/tools/prettyjson.py'
 alias fg='~/tools/search.sh'
 alias rmls='~/tools/rmls.sh'
@@ -71,3 +71,10 @@ cd ~
 # -------------------------------------------------------------------------------
 export PATH=/usr/local/bin:$PATH
 export PATH=$PATH:~/bin:/usr/local/google_appengine
+
+# pyenv
+export PYENV_ROOT="${HOME}/.pyenv"
+if [ -d "${PYENV_ROOT}" ]; then
+  export PATH=${PYENV_ROOT}/bin:$PATH
+  eval "$(pyenv init -)"
+fi
