@@ -69,7 +69,8 @@ cd ~
 # -------------------------------------------------------------------------------
 # path
 # -------------------------------------------------------------------------------
-export PATH=$PATH:/usr/local/google_appengine
+export PATH=/usr/local/bin:$PATH
+export PATH=$PATH:~/bin:/usr/local/google_appengine
 
 # pyenv
 export PYENV_ROOT="${HOME}/.pyenv"
