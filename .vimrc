@@ -40,8 +40,13 @@ command! Rv source $MYVIMRC
 set helpfile=$VIMRUNTIME/doc/help.txt
 
 " ファイルタイプ判定をon
+filetype on
 filetype plugin on
 
+
+"-------------------------------------------------------------------------------
+" カラースキーム
+"-------------------------------------------------------------------------------
 " colorscheme
 colorscheme pyte
 
@@ -349,9 +354,26 @@ let g:vimfiler_as_default_explorer = 1
 command Vf VimFiler -buffer-name=explorer -split -simple -winwidth=35 -toggle -no-quit
 
 " インデント関連
-" set softtabstop=4
-" set shiftwidth=4
-" set expandtab
+set softtabstop=4
+set shiftwidth=4
+set expandtab
+" タブの画面上での幅
+set tabstop=4
+" インデントの設定をファイルタイプ別に行う
+"   (shiftwidth=スマートインデントの幅)
+"   (tabstop=タブの画面上での幅)
+"   (softtabstop=??? デフォルトは tabstop と同じらしい)
+augroup vimrc
+autocmd! FileType python setlocal shiftwidth=4 tabstop=4 softtabstop=4
+autocmd! FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd! FileType css setlocal shiftwidth=4 tabstop=2 softtabstop=2
+autocmd! FileType js setlocal shiftwidth=4 tabstop=4 softtabstop=4
+augroup END
+
+
+set noautoindent
+set nosmartindent
+
 " 
 " NeoBundle ------ vimプラグイン管理
 " NeoBundle がインストールされていない時、
@@ -419,8 +441,6 @@ function! s:LoadBundles()
 
 
   let g:qfixmemo_dir = '~/Dropbox/howm'
-
-
 
 endfunction
 
